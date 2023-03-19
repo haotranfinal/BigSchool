@@ -19,6 +19,7 @@ namespace lab3_TranVanHao_2011065143.Models
         public Category Category { get; set; }
         public string CategoryId { get; set; }
 
+      
     }
    
 }
