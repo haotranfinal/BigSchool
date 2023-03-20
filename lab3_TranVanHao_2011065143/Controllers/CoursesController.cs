@@ -9,10 +9,10 @@ using System.Web.Mvc;
 
 namespace lab3_TranVanHao_2011065143.Controllers
 {
-    public class CourseController : Controller
+    public class CoursesController : Controller
     {
         private readonly ApplicationDbContext _dbContext;
-        public CourseController()
+        public CoursesController()
         {
             _dbContext = new ApplicationDbContext();
         }

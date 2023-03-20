@@ -6,7 +6,6 @@
 
 
 <h2>Create</h2>
-<form>
     @using (Html.BeginForm("Create", "Courses"))
     {
         @Html.AntiForgeryToken()
@@ -36,8 +35,4 @@
         <div class="form-group">...</div>
         <div class="form-group">...</div>
         <button type="submit" value="Save" class="btn btn-primary">Save</button>
-    }
-    @section scripts
-    {
-        @Scripts.Render("~/bundles/jqueryval");
     }
