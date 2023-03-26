@@ -9,6 +9,8 @@ namespace lab3_TranVanHao_2011065143.ViewModels
 {
     public class CourseViewModel
     {
+        public IEnumerable<Course> UpcommingCourses { get; set; }
+        public bool ShowAction { get; set; }
         [Required]
         public string Place { get; set; }
         [Required]

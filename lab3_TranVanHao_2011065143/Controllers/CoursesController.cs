@@ -3,6 +3,7 @@ using lab3_TranVanHao_2011065143.ViewModels;
 using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -46,6 +47,22 @@ namespace lab3_TranVanHao_2011065143.Controllers
             _dbContext.SaveChanges();
             return RedirectToAction("Index", "Home");
         }
-
+        [Authorize]
+        public ActionResult Attending()
+        {
+            var userId = User.Identity.GetUserId();
+            var courses = _dbContext.Attendances
+            .Where(a => a.AttendeeId == userId)
+            .Select(a => a.course)
+            .Include(l => l.Lecturer)
+            .Include(l => l.Category)
+            .ToList();
+            var viewModel = new CourseViewModel
+            {
+                UpcommingCourses = courses,
+                ShowAction = User.Identity.IsAuthenticated
+            }; 
+            return View(viewModel);
+        }
     }
 }
