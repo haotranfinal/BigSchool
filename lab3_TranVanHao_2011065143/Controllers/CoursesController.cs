@@ -57,12 +57,24 @@ namespace lab3_TranVanHao_2011065143.Controllers
             .Include(l => l.Lecturer)
             .Include(l => l.Category)
             .ToList();
-            var viewModel = new CourseViewModel
+
+            var viewModel = new CustomViewModel
             {
                 UpcommingCourses = courses,
                 ShowAction = User.Identity.IsAuthenticated
             }; 
             return View(viewModel);
+        }
+        [Authorize]
+        public ActionResult Mine()
+        { 
+            var userId = User.Identity.GetUserId();
+            var courses = _dbContext.Courses
+                .Where(c => c.LecturerId == userId && c.DateTime > DateTime.Now)
+                .Include(l => l.Lecturer)
+                .Include(l => l.Category)
+                .ToList();
+            return View(courses);
         }
     }
 }

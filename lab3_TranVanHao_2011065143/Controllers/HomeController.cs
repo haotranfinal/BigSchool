@@ -22,7 +22,7 @@ namespace lab3_TranVanHao_2011065143.Controllers
                 .Include(c => c.Lecturer)
                 .Include(c => c.Category)
                 .Where(c => c.DateTime > DateTime.Now);          
-            var viewModel = new CourseViewModel
+            var viewModel = new CustomViewModel
             {
                 UpcommingCourses = upcommingCourses,
                 ShowAction = User.Identity.IsAuthenticated

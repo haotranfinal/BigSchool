@@ -1,4 +1,4 @@
-﻿@model lab3_TranVanHao_2011065143.ViewModels.CourseViewModel
+﻿@model lab3_TranVanHao_2011065143.ViewModels.CoursesViewModel
 @{
     ViewBag.Title = "Attending";
     Layout = "~/Views/Courses/Create.cshtml";
@@ -25,9 +25,7 @@
                         <button class="btn btn-link btn-sm js-toggle-follow" data-user-id="@course.LecturerId">Follow</button>
                     }
                 </span>
-                <span class="category">
 
-                </span>
                 @if (Model.ShowAction)
                 {
                     <button data-course-id="@course.Id" class="btn btn-default btn-sm js-toggle-attendance">Going?</button>
